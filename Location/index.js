@@ -108,7 +108,7 @@ function main() {
         // const material2 = new THREE.MeshBasicMaterial({color: 0xffff00});
         // const material3 = new THREE.MeshBasicMaterial({color: 0x0000ff});
         // const material4 = new THREE.MeshBasicMaterial({color: 0x00ff00});
-        const loader = new GLTFLoader();
+        const loader = new THREE.GLTFLoader();
         // Load a glTF resource
         loader.load(
             // resource URL
