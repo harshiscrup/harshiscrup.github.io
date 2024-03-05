@@ -116,10 +116,11 @@ function main() {
             // called when the resource is loaded
             function (gltf) {
 
-                arjs.add(gltf.arjs, longitude, latitude + 0.001); // slightly north
-                arjs.add(gltf.arjs, longitude, latitude - 0.001); // slightly south
-                arjs.add(gltf.arjs, longitude - 0.001, latitude); // slightly west
-                arjs.add(gltf.arjs, longitude + 0.001, latitude); // slightly east
+                arjs.add(gltf.arjs); // slightly north
+                gltf.arjs.position.set(longitude, latitude + 0.001)
+                // arjs.add(gltf.arjs, longitude, latitude - 0.001); // slightly south
+                // arjs.add(gltf.arjs, longitude - 0.001, latitude); // slightly west
+                // arjs.add(gltf.arjs, longitude + 0.001, latitude); // slightly east
 
             },
         )
