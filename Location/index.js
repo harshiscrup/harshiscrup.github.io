@@ -109,15 +109,18 @@ function main() {
         // const material3 = new THREE.MeshBasicMaterial({color: 0x0000ff});
         // const material4 = new THREE.MeshBasicMaterial({color: 0x00ff00});
         const loader = new THREE.GLTFLoader();
+        const car = new THREE.Object3D();
         // Load a glTF resource
         loader.load(
             // resource URL
             'assets/McLaren.glb',
             // called when the resource is loaded
             function (gltf) {
-
-                arjs.add(gltf.arjs); // slightly north
-                gltf.arjs.position.set(longitude, latitude + 0.001)
+                car.add(gltf.scene);
+                // arjs.add(gltf.arjs); // slightly north
+                car.scale.set(10, 10, 10)
+                car.position.set(longitude, 0, latitude + 0.001)
+                arjs.add(car)
                 // arjs.add(gltf.arjs, longitude, latitude - 0.001); // slightly south
                 // arjs.add(gltf.arjs, longitude - 0.001, latitude); // slightly west
                 // arjs.add(gltf.arjs, longitude + 0.001, latitude); // slightly east
