@@ -116,10 +116,10 @@ function main() {
             // called when the resource is loaded
             function (gltf) {
 
-                arjs.add(new THREE.Mesh(gltf, material), longitude, latitude + 0.001); // slightly north
-                arjs.add(new THREE.Mesh(gltf, material2), longitude, latitude - 0.001); // slightly south
-                arjs.add(new THREE.Mesh(gltf, material3), longitude - 0.001, latitude); // slightly west
-                arjs.add(new THREE.Mesh(gltf, material4), longitude + 0.001, latitude); // slightly east
+                arjs.add(gltf.arjs, longitude, latitude + 0.001); // slightly north
+                arjs.add(gltf.arjs, longitude, latitude - 0.001); // slightly south
+                arjs.add(gltf.arjs, longitude - 0.001, latitude); // slightly west
+                arjs.add(gltf.arjs, longitude + 0.001, latitude); // slightly east
 
             },
         )
