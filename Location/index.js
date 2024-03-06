@@ -119,7 +119,7 @@ function main() {
                 car.add(gltf.scene);
                 // arjs.add(gltf.arjs); // slightly north
                 car.scale.set(10, 10, 10)
-                car.position.set(longitude, 0, latitude + 0.001)
+                car.position.set(longitude, latitude + 0.001)
                 arjs.add(car)
                 // arjs.add(gltf.arjs, longitude, latitude - 0.001); // slightly south
                 // arjs.add(gltf.arjs, longitude - 0.001, latitude); // slightly west
