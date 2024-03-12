@@ -26,16 +26,16 @@ function main() {
         let     orientationControls = new THREEx.DeviceOrientationControls(camera);
     // }
 
-    // let fake = null;
-    // let first = true;
+    let fake = null;
+    let first = true;
 
-    // arjs.on("gpsupdate", pos => {
-    //     if (first) {
-    //         setupObjects(pos.coords.longitude, pos.coords.latitude);
-    //         first = false;
-    //         console.log(pos.coords.longitude, pos.coords.latitude)
-    //     }
-    // });
+    arjs.on("gpsupdate", pos => {
+        if (first) {
+            setupObjects(pos.coords.longitude, pos.coords.latitude);
+            first = false;
+            console.log(pos.coords.longitude, pos.coords.latitude)
+        }
+    });
 
     // arjs.on("gpserror", code => {
     //     alert(`GPS error: code ${code}`);
@@ -107,7 +107,7 @@ function main() {
         camera.updateProjectionMatrix();
     }
 
-    // function setupObjects(longitude, latitude) {
+    function setupObjects(longitude, latitude) {
         // Use position of first GPS update (fake or real)
         // const material = new THREE.MeshBasicMaterial({color: 0xff0000});
         // const material2 = new THREE.MeshBasicMaterial({color: 0xffff00});
@@ -134,7 +134,7 @@ function main() {
         )
         console.log(car);
 
-    // }
+    }
 
     requestAnimationFrame(render);
 }
