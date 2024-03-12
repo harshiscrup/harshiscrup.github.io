@@ -23,7 +23,7 @@ function main() {
 
     // Orientation controls only work on mobile device
     // if (isMobile()) {
-        let orientationControls = new THREEx.DeviceOrientationControls(camera);
+        let     orientationControls = new THREEx.DeviceOrientationControls(camera);
     // }
 
     // let fake = null;
@@ -107,7 +107,7 @@ function main() {
         camera.updateProjectionMatrix();
     }
 
-    function setupObjects(longitude, latitude) {
+    // function setupObjects(longitude, latitude) {
         // Use position of first GPS update (fake or real)
         // const material = new THREE.MeshBasicMaterial({color: 0xff0000});
         // const material2 = new THREE.MeshBasicMaterial({color: 0xffff00});
@@ -134,7 +134,7 @@ function main() {
         )
         console.log(car);
 
-    }
+    // }
 
     requestAnimationFrame(render);
 }
