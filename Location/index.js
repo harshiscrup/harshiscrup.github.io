@@ -26,68 +26,68 @@ function main() {
         orientationControls = new THREEx.DeviceOrientationControls(camera);
     }
 
-    let fake = null;
-    let first = true;
+    // let fake = null;
+    // let first = true;
 
-    arjs.on("gpsupdate", pos => {
-        if (first) {
-            setupObjects(pos.coords.longitude, pos.coords.latitude);
-            first = false;
-            console.log(pos.coords.longitude, pos.coords.latitude)
-        }
-    });
+    // arjs.on("gpsupdate", pos => {
+    //     if (first) {
+    //         setupObjects(pos.coords.longitude, pos.coords.latitude);
+    //         first = false;
+    //         console.log(pos.coords.longitude, pos.coords.latitude)
+    //     }
+    // });
 
-    arjs.on("gpserror", code => {
-        alert(`GPS error: code ${code}`);
-    });
+    // arjs.on("gpserror", code => {
+    //     alert(`GPS error: code ${code}`);
+    // });
 
     // Uncomment to use a fake GPS location
     //fake = { lat: 51.05, lon : -0.72 };
-    if (fake) {
-        arjs.fakeGps(fake.lon, fake.lat);
-        console.log("fake")
-    } else {
+    // if (fake) {
+    //     arjs.fakeGps(fake.lon, fake.lat);
+    //     console.log("fake")
+    // } else {
         arjs.startGps();
         console.log("og")
-    }
+    // }
 
 
     let mousedown = false, lastX = 0;
 
     // Mouse events for testing on desktop machine
-    if (!isMobile()) {
-        window.addEventListener("mousedown", e => {
-            mousedown = true;
-        });
+    // if (!isMobile()) {
+    //     window.addEventListener("mousedown", e => {
+    //         mousedown = true;
+    //     });
 
-        window.addEventListener("mouseup", e => {
-            mousedown = false;
-        });
+    //     window.addEventListener("mouseup", e => {
+    //         mousedown = false;
+    //     });
 
-        window.addEventListener("mousemove", e => {
-            if (!mousedown) return;
-            if (e.clientX < lastX) {
-                camera.rotation.y += mouseStep;
-                if (camera.rotation.y < 0) {
-                    camera.rotation.y += 2 * Math.PI;
-                }
-            } else if (e.clientX > lastX) {
-                camera.rotation.y -= mouseStep;
-                if (camera.rotation.y > 2 * Math.PI) {
-                    camera.rotation.y -= 2 * Math.PI;
-                }
-            }
-            lastX = e.clientX;
-        });
-    }
+    //     window.addEventListener("mousemove", e => {
+    //         if (!mousedown) return;
+    //         if (e.clientX < lastX) {
+    //             camera.rotation.y += mouseStep;
+    //             if (camera.rotation.y < 0) {
+    //                 camera.rotation.y += 2 * Math.PI;
+    //             }
+    //         } else if (e.clientX > lastX) {
+    //             camera.rotation.y -= mouseStep;
+    //             if (camera.rotation.y > 2 * Math.PI) {
+    //                 camera.rotation.y -= 2 * Math.PI;
+    //             }
+    //         }
+    //         lastX = e.clientX;
+    //     });
+    // }
 
-    function isMobile() {
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            // true for mobile device
-            return true;
-        }
-        return false;
-    }
+    // function isMobile() {
+    //     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    //         // true for mobile device
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
     function render(time) {
         resizeUpdate();
