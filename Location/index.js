@@ -113,7 +113,7 @@ function main() {
         // const material4 = new THREE.MeshBasicMaterial({color: 0x00ff00});
         const loader = new THREE.GLTFLoader();
         const car = new THREE.Object3D();
-        // Load a glTF resource
+        // Load a glTF resource 
         loader.load(
             // resource URL
             'assets/McLaren.glb',
