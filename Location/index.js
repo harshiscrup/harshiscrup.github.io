@@ -130,6 +130,7 @@ function main() {
                 console.log(car)
             },
         )
+        console.log(car)
 
     }
 
