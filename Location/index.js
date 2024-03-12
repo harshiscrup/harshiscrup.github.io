@@ -116,14 +116,14 @@ function main() {
         // Load a glTF resource 
         loader.load(
             // resource URL
-            'assets/McLaren.glb',
+            'assets/porsche_gt3_rs/scene.gltf',
             // called when the resource is loaded
             function (gltf) {
                 car.add(gltf.scene);
                 // arjs.add(gltf.arjs); // slightly north
                 car.scale.set(10, 10, 10);
                 // car.position.set(longitude, latitude + 0.001)
-                arjs.add(car, 73.70980935521705, 18.599363089569344)
+                arjs.add(car, 73.70964976378225, 18.598778400398864);
                 // arjs.add(gltf.arjs, longitude, latitude - 0.001); // slightly south
                 // arjs.add(gltf.arjs, longitude - 0.001, latitude); // slightly west
                 // arjs.add(gltf.arjs, longitude + 0.001, latitude); // slightly east
