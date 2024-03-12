@@ -2,7 +2,7 @@
 function main() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(80, 2, 0.1, 50000);
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 2);
     scene.add(ambientLight);
     const renderer = new THREE.WebGLRenderer({
         canvas: document.querySelector('#canvas1')
@@ -123,7 +123,7 @@ function main() {
             function (gltf) {
                 car.add(gltf.scene);
                 // arjs.add(gltf.arjs); // slightly north
-                car.scale.set(10, 10, 10);
+                car.scale.set(5, 5, 5);
                 // car.position.set(longitude, latitude + 0.001)
                 arjs.add(car, 73.70964976378225, 18.598778400398864);
                 // arjs.add(gltf.arjs, longitude, latitude - 0.001); // slightly south
