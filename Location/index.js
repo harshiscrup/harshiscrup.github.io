@@ -22,9 +22,9 @@ function main() {
     let orientationControls;
 
     // Orientation controls only work on mobile device
-    if (isMobile()) {
+    // if (isMobile()) {
         orientationControls = new THREEx.DeviceOrientationControls(camera);
-    }
+    // }
 
     // let fake = null;
     // let first = true;
