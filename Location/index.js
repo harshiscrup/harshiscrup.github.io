@@ -17,9 +17,9 @@ function main() {
 
     arjs.on("gpsupdate", pos => {
         if (first) {
-            setupObjects(pos.coords.longitude, pos.coords.latitude, pos.coords.elevation);
+            setupObjects(pos.coords.longitude, pos.coords.latitude);
             first = false;
-            console.log(pos.coords.longitude, pos.coords.latitude, pos.coords.elevation)
+            console.log(pos.coords.longitude, pos.coords.latitude)
         }
     });
 
