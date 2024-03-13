@@ -8,25 +8,11 @@ function main() {
         canvas: document.querySelector('#canvas1')
     });
 
-    // const geom = new THREE.BoxGeometry(20, 20, 20);
-
-    const arjs = new THREEx.LocationBased(scene, camera);
-
-    // You can change the minimum GPS accuracy needed to register a position - by default 1000m
-    //const arjs = new THREEx.LocationBased(scene, camera. { gpsMinAccuracy: 30 } );
+    const arjs = new THREEx.LocationBased(scene, camera, { gpsMinAccuracy: 25 }, { gpsMinDistance: 500 });
     const cam = new THREEx.WebcamRenderer(renderer, '#video1');
 
-    const mouseStep = THREE.MathUtils.degToRad(5);
+    let orientationControls = new THREEx.DeviceOrientationControls(camera);
 
-
-    
-
-    // Orientation controls only work on mobile device
-    // if (isMobile()) {
-        let     orientationControls = new THREEx.DeviceOrientationControls(camera);
-    // }
-
-    let fake = null;
     let first = true;
 
     arjs.on("gpsupdate", pos => {
@@ -37,57 +23,8 @@ function main() {
         }
     });
 
-    // arjs.on("gpserror", code => {
-    //     alert(`GPS error: code ${code}`);
-    // });
-
-    // Uncomment to use a fake GPS location
-    //fake = { lat: 51.05, lon : -0.72 };
-    // if (fake) {
-    //     arjs.fakeGps(fake.lon, fake.lat);
-    //     console.log("fake")
-    // } else {
-        arjs.startGps();
-        console.log("og")
-    // }
-
-
-    let mousedown = false, lastX = 0;
-
-    // Mouse events for testing on desktop machine
-    // if (!isMobile()) {
-    //     window.addEventListener("mousedown", e => {
-    //         mousedown = true;
-    //     });
-
-    //     window.addEventListener("mouseup", e => {
-    //         mousedown = false;
-    //     });
-
-    //     window.addEventListener("mousemove", e => {
-    //         if (!mousedown) return;
-    //         if (e.clientX < lastX) {
-    //             camera.rotation.y += mouseStep;
-    //             if (camera.rotation.y < 0) {
-    //                 camera.rotation.y += 2 * Math.PI;
-    //             }
-    //         } else if (e.clientX > lastX) {
-    //             camera.rotation.y -= mouseStep;
-    //             if (camera.rotation.y > 2 * Math.PI) {
-    //                 camera.rotation.y -= 2 * Math.PI;
-    //             }
-    //         }
-    //         lastX = e.clientX;
-    //     });
-    // }
-
-    // function isMobile() {
-    //     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    //         // true for mobile device
-    //         return true;
-    //     }
-    //     return false;
-    // }
+    arjs.startGps();
+    console.log("og")
 
     function render(time) {
         resizeUpdate();
@@ -108,11 +45,6 @@ function main() {
     }
 
     function setupObjects(longitude, latitude) {
-        // Use position of first GPS update (fake or real)
-        // const material = new THREE.MeshBasicMaterial({color: 0xff0000});
-        // const material2 = new THREE.MeshBasicMaterial({color: 0xffff00});
-        // const material3 = new THREE.MeshBasicMaterial({color: 0x0000ff});
-        // const material4 = new THREE.MeshBasicMaterial({color: 0x00ff00});
         const loader = new THREE.GLTFLoader();
         const car = new THREE.Object3D();
         // Load a glTF resource 
@@ -122,13 +54,8 @@ function main() {
             // called when the resource is loaded
             function (gltf) {
                 car.add(gltf.scene);
-                // arjs.add(gltf.arjs); // slightly north
                 car.scale.set(5, 5, 5);
-                // car.position.set(longitude, latitude + 0.001)
                 arjs.add(car, 73.70964976378225, 18.598778400398864);
-                // arjs.add(gltf.arjs, longitude, latitude - 0.001); // slightly south
-                // arjs.add(gltf.arjs, longitude - 0.001, latitude); // slightly west
-                // arjs.add(gltf.arjs, longitude + 0.001, latitude); // slightly east
                 console.log(car);
             },
         )
