@@ -59,10 +59,8 @@ function main() {
                 console.log(car);
             },
         )
-        console.log(camera);
-
     }
-
+    console.log(camera);
     requestAnimationFrame(render);
 }
 
