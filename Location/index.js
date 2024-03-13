@@ -60,7 +60,7 @@ function main() {
             },
         )
     }
-    console.log(camera);
+    // console.log(camera);
     requestAnimationFrame(render);
 }
 
