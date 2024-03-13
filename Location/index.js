@@ -1,7 +1,7 @@
 
 function main() {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(0, 2, 0.1, 50000);
+    const camera = new THREE.PerspectiveCamera(80, 2, 0.1, 50000);
     const ambientLight = new THREE.AmbientLight(0xffffff, 2);
     scene.add(ambientLight);
     const renderer = new THREE.WebGLRenderer({
@@ -17,9 +17,9 @@ function main() {
 
     arjs.on("gpsupdate", pos => {
         if (first) {
-            setupObjects(pos.coords.longitude, pos.coords.latitude);
+            setupObjects(pos.coords.longitude, pos.coords.elevation, pos.coords.latitude);
             first = false;
-            console.log(pos.coords.longitude, pos.coords.latitude)
+            console.log(pos.coords.longitude, pos.coords.elevation, pos.coords.latitude)
         }
     });
 
@@ -44,7 +44,7 @@ function main() {
         camera.updateProjectionMatrix();
     }
 
-    function setupObjects(longitude, latitude) {
+    function setupObjects(longitude, elevation, latitude) {
         const loader = new THREE.GLTFLoader();
         const car = new THREE.Object3D();
         // Load a glTF resource 
@@ -55,7 +55,8 @@ function main() {
             function (gltf) {
                 car.add(gltf.scene);
                 car.scale.set(5, 5, 5);
-                arjs.add(car, 73.70964976378225, 18.598778400398864);
+                arjs.add(car, 73.70964976378225, longitude, elevation + 0.002, 18.598778400398864);
+                // arjs.add(car, longitude, elevation + 0.002, latitude + 0.001); // slightly north
                 console.log(car);
             },
         )
