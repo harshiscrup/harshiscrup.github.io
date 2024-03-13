@@ -59,7 +59,7 @@ function main() {
                 console.log(car);
             },
         )
-        console.log(camera.position);
+        console.log(camera);
 
     }
 
