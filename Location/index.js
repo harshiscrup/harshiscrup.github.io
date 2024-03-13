@@ -56,7 +56,6 @@ function main() {
                 car.add(gltf.scene);
                 car.scale.set(5, 5, 5);
                 arjs.add(car, 73.70964976378225, 18.598778400398864, 0.001);
-                // arjs.add(car, longitude, elevation + 0.002, latitude + 0.001); // slightly north
                 console.log(car);
             },
         )
