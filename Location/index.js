@@ -44,7 +44,7 @@ function main() {
         camera.updateProjectionMatrix();
     }
 
-    function setupObjects(longitude, latitude) {
+    function setupObjects(longitude, latitude, altitude) {
         const loader = new THREE.GLTFLoader();
         const car = new THREE.Object3D();
         // Load a glTF resource 
@@ -55,7 +55,8 @@ function main() {
             function (gltf) {
                 car.add(gltf.scene);
                 car.scale.set(5, 5, 5);
-                arjs.add(car, 73.70964976378225, 18.598778400398864, 0.002);
+                // arjs.add(car, 73.70964976378225, 18.598778400398864, 0.002);
+                arjs.add(car, longitude, latitude + 0.001, altitude - 0.001); // slightly north
                 console.log(car);
             },
         )
