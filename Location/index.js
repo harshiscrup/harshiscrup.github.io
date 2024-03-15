@@ -8,7 +8,7 @@ function main() {
         canvas: document.querySelector('#canvas1')
     });
 
-    const arjs = new THREEx.LocationBased(scene, camera, { positionMinAccuracy : 5}, { gpsMinDistance : 200});
+    const arjs = new THREEx.LocationBased(scene, camera);
     const cam = new THREEx.WebcamRenderer(renderer, '#video1');
 
     let orientationControls = new THREEx.DeviceOrientationControls(camera);
