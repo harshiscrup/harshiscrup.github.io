@@ -17,9 +17,9 @@ function main() {
 
     arjs.on("gpsupdate", pos => {
         if (first) {
-            setupObjects(pos.coords.longitude, pos.coords.latitude, pos.coords.altitude);
+            setupObjects(pos.coords.longitude, pos.coords.latitude, pos.coords.elevation);
             first = false;
-            console.log(pos.coords.longitude, pos.coords.latitude, pos.coords.altitude)
+            console.log(pos.coords.longitude, pos.coords.latitude, pos.coords.elevation)
         }
     });
 
@@ -55,8 +55,7 @@ function main() {
             function (gltf) {
                 car.add(gltf.scene);
                 car.scale.set(5, 5, 5);
-                // arjs.add(car, 73.70964976378225, 18.598778400398864, 0.002);
-                arjs.add(car, longitude, latitude + 0.001, altitude - 0.001); // slightly north
+                arjs.add(car, 73.70964976378225, 18.598778400398864);
                 console.log(car);
             },
         )
