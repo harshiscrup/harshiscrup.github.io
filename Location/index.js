@@ -14,12 +14,12 @@ function main() {
     let orientationControls = new THREEx.DeviceOrientationControls(camera);
 
     let first = true;
-    navigator.geolocation.getCurrentPosition((pos) => console.log(pos))
     arjs.on("gpsupdate", pos => {
         if (first) {
             setupObjects(pos.coords.longitude, pos.coords.latitude);
             first = false;
             console.log(pos.coords.longitude, pos.coords.latitude)
+            console.log(pos)
         }
     });
 
