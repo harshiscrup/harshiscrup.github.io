@@ -19,7 +19,7 @@ function main() {
             setupObjects(pos.coords.longitude, pos.coords.latitude);
             first = false;
             console.log(pos.coords.longitude, pos.coords.latitude)
-            console.log(pos)
+            console.log(pos.coords)
         }
     });
 
