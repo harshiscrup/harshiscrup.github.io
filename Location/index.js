@@ -16,9 +16,9 @@ function main() {
     let first = true;
     arjs.on("gpsupdate", pos => {
         if (first) {
-            setupObjects(pos.coords.longitude, pos.coords.latitude, pos.coords.accuracy);
+            setupObjects(pos.coords.longitude, pos.coords.latitude);
             first = false;
-            console.log(pos.coords.longitude, pos.coords.latitude, pos.coords.accuracy)
+            console.log(pos.coords.longitude, pos.coords.latitude)
         }
     });
 
@@ -43,7 +43,7 @@ function main() {
         camera.updateProjectionMatrix();
     }
 
-    function setupObjects(longitude, latitude, accuracy) {
+    function setupObjects(longitude, latitude) {
         const loader = new THREE.GLTFLoader();
         const car = new THREE.Object3D();
         // Load a glTF resource 
