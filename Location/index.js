@@ -23,7 +23,7 @@ function main() {
     });
 
     arjs.startGps();
-    console.log("og")
+    // console.log("og")
 
     function render(time) {
         resizeUpdate();
@@ -59,7 +59,7 @@ function main() {
             },
         )
     }
-    console.log(camera);
+    // console.log(camera);
     requestAnimationFrame(render);
 }
 
