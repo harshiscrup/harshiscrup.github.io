@@ -18,7 +18,7 @@ function main() {
         if (first) {
             setupObjects(pos.coords.longitude, pos.coords.latitude);
             first = false;
-            console.log(pos.coords.longitude, pos.coords.latitude)
+            console.log(pos.coords.longitude, pos.coords.latitude);
         }
     });
 
@@ -54,7 +54,7 @@ function main() {
             function (gltf) {
                 car.add(gltf.scene);
                 car.scale.set(5, 5, 5);
-                arjs.add(car, 73.70964976378225, 18.598778400398864);
+                arjs.add(car, 73.70964976378225, 18.598778400398864, 12);
                 console.log(car);
             },
         )
