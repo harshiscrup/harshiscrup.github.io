@@ -8,7 +8,7 @@ function main() {
         canvas: document.querySelector('#canvas1')
     });
 
-    const arjs = new THREEx.LocationBased(scene, camera, { gpsMinAccuracy : 5});
+    const arjs = new THREEx.LocationBased(scene, camera, { gpsMinAccuracy: 5 });
     const cam = new THREEx.WebcamRenderer(renderer, '#video1');
 
     let orientationControls = new THREEx.DeviceOrientationControls(camera);
@@ -23,7 +23,6 @@ function main() {
     });
 
     arjs.startGps();
-    // console.log("og")
 
     function render(time) {
         resizeUpdate();
@@ -59,7 +58,7 @@ function main() {
             },
         )
     }
-    // console.log(camera);
+
     requestAnimationFrame(render);
 }
 
