@@ -2,6 +2,7 @@
 function main() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(80, 2, 0.1, 50000);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 2);
     const renderer = new THREE.WebGLRenderer({ 
         canvas: document.querySelector('#canvas1') 
     });
@@ -76,14 +77,6 @@ function main() {
         });
     }
 
-	function isMobile() {
-    	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        	// true for mobile device
-        	return true;
-    	}
-    	return false;
-	}
-
     function render(time) {
         resizeUpdate();
         if(orientationControls) orientationControls.update();
@@ -115,11 +108,7 @@ function main() {
                 console.log(car);
             }
         )
-        // arjs.add(new THREE.Mesh(geom, material), longitude, latitude + 0.001); // slightly north
-    //     arjs.add(new THREE.Mesh(geom, material2), longitude, latitude - 0.001); // slightly south
-    //     arjs.add(new THREE.Mesh(geom, material3), longitude - 0.001, latitude); // slightly west
-    //     arjs.add(new THREE.Mesh(geom, material4), longitude + 0.001, latitude); // slightly east
-    // }
+    }
 
     requestAnimationFrame(render);
 }
