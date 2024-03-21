@@ -49,7 +49,7 @@ function main() {
         // Load a glTF resource 
         loader.load(
             // resource URL
-            'assets/porsche_gt3_rs/scene.gltf',
+            './assets/porsche_gt3_rs/scene.gltf',
             // called when the resource is loaded
             function (gltf) {
                 car.add(gltf.scene);
