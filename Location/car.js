@@ -47,36 +47,6 @@ function main() {
         arjs.startGps();
     } 
 
-
-    let mousedown = false, lastX = 0;
-
-    // Mouse events for testing on desktop machine
-    if(!isMobile()) {
-        window.addEventListener("mousedown", e=> {
-            mousedown = true;
-        });
-
-        window.addEventListener("mouseup", e=> {
-            mousedown = false;
-        });
-
-        window.addEventListener("mousemove", e=> {
-            if(!mousedown) return;
-            if(e.clientX < lastX) {
-                camera.rotation.y += mouseStep; 
-                if(camera.rotation.y < 0) {
-                    camera.rotation.y += 2 * Math.PI;
-                }
-            } else if (e.clientX > lastX) {
-                camera.rotation.y -= mouseStep;
-                if(camera.rotation.y > 2 * Math.PI) {
-                    camera.rotation.y -= 2 * Math.PI;
-                }
-            }
-            lastX = e.clientX;
-        });
-    }
-
     function render(time) {
         resizeUpdate();
         if(orientationControls) orientationControls.update();
