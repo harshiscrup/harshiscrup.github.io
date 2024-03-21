@@ -18,12 +18,8 @@ function main() {
     const mouseStep = THREE.MathUtils.degToRad(5);
 
 
-    let orientationControls;
-
-    // Orientation controls only work on mobile device
-    if (isMobile()){   
-        orientationControls = new THREEx.DeviceOrientationControls(camera);
-    } 
+    let orientationControls = new THREEx.DeviceOrientationControls(camera);
+    
 
     let fake = null;
     let first = true;
