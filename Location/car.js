@@ -69,7 +69,7 @@ function main() {
             function(gltf){
                 car.add(gltf.scene);
                 car.scale.set( 4 , 4 , 4 );
-                arjs.add(car, 73.70964663070741, 18.598770380472438); 
+                arjs.add(car, 73.70958240326438, 18.598595347826713); 
                 console.log(car);
             }
         )
