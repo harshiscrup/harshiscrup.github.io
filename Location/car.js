@@ -68,8 +68,8 @@ function main() {
             "./assets/porsche_gt3_rs/scene.gltf",
             function(gltf){
                 car.add(gltf.scene);
-                car.scale.set( 5 , 5 , 5 );
-                arjs.add(car, 73.70972854625062, 18.5990511789582);
+                car.scale.set( 4 , 4 , 4 );
+                arjs.add(car, 73.70964663070741, 18.598770380472438); 
                 console.log(car);
             }
         )
