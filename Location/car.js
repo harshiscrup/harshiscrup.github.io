@@ -3,6 +3,7 @@ function main() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(80, 2, 0.1, 50000);
     const ambientLight = new THREE.AmbientLight(0xffffff, 2);
+    scene.add(ambientLight);
     const renderer = new THREE.WebGLRenderer({ 
         canvas: document.querySelector('#canvas1') 
     });
