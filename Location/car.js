@@ -8,8 +8,6 @@ function main() {
         canvas: document.querySelector('#canvas1') 
     });
 
-    const geom = new THREE.BoxGeometry(20,20,20);
-
     const arjs = new THREEx.LocationBased(scene, camera);
 
     // You can change the minimum GPS accuracy needed to register a position - by default 1000m
