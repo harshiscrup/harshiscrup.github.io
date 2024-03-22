@@ -70,7 +70,7 @@ function main() {
             function(gltf){
                 car.add(gltf.scene);
                 car.scale.set( 5 , 5 , 5 );
-                arjs.add(car, longitude, latitude + 0.001);
+                arjs.add(car, 73.70972854625062, 18.5990511789582);
                 console.log(car);
             }
         )
